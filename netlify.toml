@@ -1,0 +1,27 @@
+# Netlify configuration file
+# Place this in the ROOT of your site folder alongside index.html
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=UTF-8"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=UTF-8"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+
+# Redirect /index.html to clean root URL
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = false
